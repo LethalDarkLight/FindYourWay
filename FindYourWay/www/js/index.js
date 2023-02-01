@@ -21,9 +21,19 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+function onDeviceReady()
+{
+    document.getElementById("vibration").addEventListener("click", vibration);
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+}
+
+function vibration() {
+
+    var time = 2000;
+    navigator.vibrate(time);
+
+    //var gyro = navigator.gyroscope.getCurrentGyroscope();
+    document.getElementById("test").innerHTML = "Gyro commo o meu cu: ";
 }

@@ -14,8 +14,10 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^10.1.2",
+    "cordova-plugin-device-gyroscope": "^0.2.2",
     "cordova-plugin-device-orientation": "^2.0.1",
     "cordova-plugin-geolocation": "^4.1.0",
+    "cordova-plugin-gyroscope": "^0.1.4",
     "cordova-plugin-stepcounter": "^1.0.1",
     "cordova-plugin-vibration": "^3.1.1"
   },
@@ -27,7 +29,8 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-vibration": {},
       "cordova-plugin-stepcounter": {},
-      "cordova-plugin-device-orientation": {}
+      "cordova-plugin-device-orientation": {},
+      "cordova-plugin-gyroscope": {}
     }
   }
 }
