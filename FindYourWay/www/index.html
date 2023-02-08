@@ -1,58 +1,90 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        
-        <div style="color:beige; text-align: center; margin-top: 20px; margin-left: auto; margin-right: auto; width: 50%;">
-            <h2 id="test">Application made by LethalDarkLight</h2>
-            <p>
-                <button style="background-color: white; color: black;" id = "vibration">VIBRATION</button>
-            </p>
-        </div>
 
-        <div class="app">
-            <h1>Apache Cordova</h1>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy">
+    <!--content=" style-src 'self' 'unsafe-inline'; media-src *;
+    ; img-src 'self' data: content:
+    default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval';
+    img-src 'self' https://*.tile.openstreetmap.org/"-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+    <link rel="icon" type="image/x-icon" href="app/img/logo.png">
+
+    <!-- Fontawesome -->
+    <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
+    <title>Find Your Way</title>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="px-2 bg-dark text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center">
+                    <ul class="nav col-12 col-lg-auto justify-content-center my-md-0 text-small">
+                        <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                            <p class="bi d-block mx-auto mb-1 favIconContainer">
+                                <i class="fa-solid fa-earth-americas fa-2xl"></i>
+                            </p>
+                            <h4 class="mx-3">Find Your Way</h4>
+                        </a>
+                        <li>
+                            <a href="#" class="nav-link text-secondary">
+                                <p class="bi d-block mx-auto mb-1 favIconContainer">
+                                    <i class="fa-solid fa-house fa-xl"></i>
+                                </p>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <p class="bi d-block mx-auto mb-1 favIconContainer">
+                                    <i class="fa-solid fa-gauge-high fa-xl"></i>
+                                </p>
+                                Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid my-4">
+
+            <div class="d-flex my-3">
+                <button class="btn btn-warning" id="vibration">Vibration</button>
+                <div class="mx-3" id="showGeolocation"></div>
+            </div>
+            
+            <div id="osm-map"></div>
+            
+            <!--
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
-            </div>
+            </div>-->
         </div>
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-    </body>
+    </main>
+
+    <script src="cordova.js"></script>
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script src="app/js/index.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+</body>
+
 </html>
