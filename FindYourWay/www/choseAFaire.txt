@@ -1,0 +1,7 @@
+- Utiliser un local storage pour sauvegarder les points.
+
+- Afficher les points sur la carte.
+
+- Un bouton rénitialisation pour vider le local storage.
+
+- Tracer un chemin avec les points obtenus.

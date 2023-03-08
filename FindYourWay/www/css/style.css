@@ -1,3 +1,8 @@
+body
+{
+    background-color: #63686D;
+}
+
 .favIconContainer
 {
     text-align: center;
@@ -5,6 +10,42 @@
 
 main
 {
-    width: 90%;
+    width: 80vw;
     margin: auto;
+    overflow-y: auto;
+}
+
+#map
+{
+    width: 100%;
+}
+
+#longitude
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#latitude
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#info-message
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#home
+{
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 430px) {
+    main
+    {
+        width: 95vw;
+    }
 }

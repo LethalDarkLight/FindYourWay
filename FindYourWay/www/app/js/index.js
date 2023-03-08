@@ -19,72 +19,20 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
+/*
+  Ce fichier contient du code fait par cordova 
+*/
 document.addEventListener('deviceready', onDeviceReady, false);
 
+if(sessionStorage.getItem('time')===null){
+  sessionStorage.setItem('time',"0");
+  sessionStorage.setItem('bool',"true");
+}
+
 function onDeviceReady() {
-  document.getElementById("vibration").addEventListener("click", vibration);
+  // document.getElementById("vibration").addEventListener("click", vibration);
 
   console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
   document.getElementById('deviceready').classList.add('ready');
 }
-
-function vibration() {
-
-  var time = 2000;
-  navigator.vibrate(time);
-
-  //var gyro = navigator.gyroscope.getCurrentGyroscope();
-  document.getElementById("test").innerHTML = "Le Text à changé";
-}
-
-// onSuccess Callback
-//   This method accepts a `Position` object, which contains
-//   the current GPS coordinates
-//
-function onSuccess(position) {
-  var element1 = document.getElementById("showGeolocation");
-  element1.innerHTML =
-    "Latitude: " +
-    position.coords.latitude +
-    "<br />" +
-    "Longitude: " +
-    position.coords.longitude +
-    "<br />";
-
-  // Where you want to render the map.
-  var element = document.getElementById('osm-map');
-
-  // Height has to be set. You can do this in CSS too.
-  element.style.height = '500px';
-  element.style.width = '100%'
-
-
-  // Create Leaflet map on map element.
-  var map = L.map(element);
-  
-  // Add OSM tile layer to the Leaflet map.
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  // Target's GPS coordinates.
-  var target = L.latLng(position.coords.latitude, position.coords.longitude);
-
-  // Set map's center to target with zoom 14.
-  map.setView(target, 14);
-
-  // Place a marker on the same location.
-  L.marker(target).addTo(map);
-}
-
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-  alert("code: " + error.code + "\n" + "message: " + error.message + "\n");
-}
-
-// Options: throw an error if no update is received every 30 seconds.
-//
-var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {
-  timeout: 30000,
-});

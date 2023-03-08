@@ -4,10 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy">
-    <!--content=" style-src 'self' 'unsafe-inline'; media-src *;
-    ; img-src 'self' data: content:
-    default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval';
-    img-src 'self' https://*.tile.openstreetmap.org/"-->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -22,56 +18,19 @@
     <link rel="stylesheet" href="assets/leaflet/leaflet.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet"/>
-    <title>Find Your Way</title>
 
+    <title>Find Your Way</title>
 </head>
 
 <body>
-
-    <header>
-        <div class="px-2 bg-dark text-white">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center">
-                    <ul class="nav col-12 col-lg-auto justify-content-center my-md-0 text-small">
-                        <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-                            <p class="bi d-block mx-auto mb-1 favIconContainer">
-                                <i class="fa-solid fa-earth-americas fa-2xl"></i>
-                            </p>
-                            <h4 class="mx-3">Find Your Way</h4>
-                        </a>
-                        <li>
-                            <a href="#" class="nav-link text-secondary">
-                                <p class="bi d-block mx-auto mb-1 favIconContainer">
-                                    <i class="fa-solid fa-house fa-xl"></i>
-                                </p>
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <p class="bi d-block mx-auto mb-1 favIconContainer">
-                                    <i class="fa-solid fa-gauge-high fa-xl"></i>
-                                </p>
-                                Dashboard
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <div class="container-fluid my-4">
+        <div class="container-fluid my-3">
 
-            <div class="d-flex my-3">
-                <button class="btn btn-warning" id="vibration">Vibration</button>
-                <div class="mx-3" id="showGeolocation"></div>
-            </div>
-            
+            <div class="d-flex justify-content-between" id="showGeolocation"></div>
+            <div id="map-error" class="text-danger"></div>
             <div id="osm-map"></div>
-            
+            <p id="info-message" class="text-light my-2 text-center"></p>
+            <button class="btn btn-primary text-white" onclick="ResetPoints()">Effacer les points</button>
             <!--
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
@@ -80,11 +39,25 @@
         </div>
     </main>
 
-    <script src="cordova.js"></script>
-    <script src="assets/leaflet/leaflet.js"></script>
-    <script src="app/js/index.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.js"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-</body>
+    <div class="fixed-bottom pt-2 bg-dark text-light">
+        <ul class="nav justify-content-center">
+            <li>
+                <a href="#" class="nav-link text-secondary" id="home">
+                    <p class="d-block mb-1 favIconContainer">
+                        <i class="fa-solid fa-house fa-xl"></i>
+                    </p>
+                    Home
+                </a>
+            </li>
+        </ul>
+    </div>
 
+    <!-- Javascript-->
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="cordova.js"></script>
+    <script src="app/js/index.js"></script>
+    <script src="app/js/plugins.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/leaflet/leaflet.js"></script>
+</body>
 </html>
